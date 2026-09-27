@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Features | DropSort</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+              rel="stylesheet">
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <!-- ================================
+         NAVBAR
+    ================================= -->
+        <nav class="navbar navbar-expand-lg dropsort-navbar">
+            <div class="container">
+                <a class="navbar-brand dropsort-brand" href="/">
+                    <span class="brand-icon">📁</span>
+                    <span>
+                        <strong>DropSort</strong>
+                        <small>Organize your files</small>
+                    </span>
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Organize Files</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for("features") }}">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for("how_to_use") }}">How to Use</a>
+                        </li>
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                            <button type="button"
+                                    id="themeToggle"
+                                    class="theme-toggle"
+                                    aria-label="Switch theme"
+                                    title="Switch theme">
+                                <span id="themeIcon">☀️</span>
+                                <span id="themeText">Light</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- ================================
+         HERO
+    ================================= -->
+        <section class="info-hero">
+            <div class="hero-glow hero-glow-one"></div>
+            <div class="hero-glow hero-glow-two"></div>
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+                        <div class="page-badge">
+                            <span>✨</span>
+                            Powerful file organization
+                        </div>
+                        <h1 class="info-hero-title">
+                            Organize your files
+                            <span>without the mess.</span>
+                        </h1>
+                        <p class="info-hero-text">
+                            DropSort automatically analyzes your files,
+                            detects duplicates, organizes them into categories,
+                            and creates a downloadable ZIP archive.
+                        </p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                            <a href="/" class="btn btn-primary btn-lg px-4">📁 Start Organizing</a>
+                            <a href="{{ url_for("how_to_use") }}"
+                               class="btn btn-outline-light btn-lg px-4">How It Works →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================================
+         STATS
+    ================================= -->
+        <section class="container stats-section">
+            <div class="row g-3">
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">📤</div>
+                        <strong>Multi</strong>
+                        <span>File Upload</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">♻️</div>
+                        <strong>SHA-256</strong>
+                        <span>Duplicate Detection</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">🗂️</div>
+                        <strong>Multiple</strong>
+                        <span>File Categories</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <strong>ZIP</strong>
+                        <span>Downloadable Output</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================================
+         FEATURES
+    ================================= -->
+        <section class="container page-section">
+            <div class="section-heading text-center">
+                <div class="section-kicker">WHAT DROPSORT CAN DO</div>
+                <h2>
+                    Everything you need to
+                    <span>clean up your files</span>
+                </h2>
+                <p>
+                    A simple interface backed by Python and Flask
+                    to automate repetitive file organization tasks.
+                </p>
+            </div>
+            <div class="row g-4">
+                <!-- Feature -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon blue">📤</div>
+                        <div class="feature-number">01</div>
+                        <h3>Multi-File Upload</h3>
+                        <p>
+                            Select multiple files at once and add more files
+                            whenever you need before starting the organization.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon purple">🖱️</div>
+                        <div class="feature-number">02</div>
+                        <h3>Drag & Drop</h3>
+                        <p>
+                            Quickly add files through an intuitive browser-based
+                            drag-and-drop workflow.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon green">🗂️</div>
+                        <div class="feature-number">03</div>
+                        <h3>Automatic Classification</h3>
+                        <p>
+                            Files are classified into meaningful categories
+                            based on their detected file type.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon orange">♻️</div>
+                        <div class="feature-number">04</div>
+                        <h3>Duplicate Detection</h3>
+                        <p>
+                            File contents are compared using SHA-256 hashing
+                            to identify identical files.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon pink">⚙️</div>
+                        <div class="feature-number">05</div>
+                        <h3>Duplicate Handling</h3>
+                        <p>
+                            Choose whether duplicates should be moved, skipped,
+                            kept, or renamed during processing.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon cyan">📦</div>
+                        <div class="feature-number">06</div>
+                        <h3>ZIP Generation</h3>
+                        <p>
+                            Download the organized folder structure as a
+                            convenient ZIP archive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================================
+         CATEGORIES
+    ================================= -->
+        <section class="container page-section">
+            <div class="section-heading text-center">
+                <div class="section-kicker">FILE ORGANIZATION</div>
+                <h2>
+                    One place for your
+                    <span>different file types</span>
+                </h2>
+            </div>
+            <div class="category-grid"
+                 style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))">
+                <div class="category-card">
+                    <span>🖼️</span>
+                    <strong>Images</strong>
+                    <small>JPG · PNG · GIF · WebP</small>
+                </div>
+                <div class="category-card">
+                    <span>📄</span>
+                    <strong>Documents</strong>
+                    <small>PDF · DOCX · TXT</small>
+                </div>
+                <div class="category-card">
+                    <span>📊</span>
+                    <strong>Spreadsheets</strong>
+                    <small>XLSX · CSV · ODS</small>
+                </div>
+                <div class="category-card">
+                    <span>📽️</span>
+                    <strong>Presentations</strong>
+                    <small>PPTX · ODP</small>
+                </div>
+                <div class="category-card">
+                    <span>💻</span>
+                    <strong>Code</strong>
+                    <small>PY · JS · Java · C++</small>
+                </div>
+                <div class="category-card">
+                    <span>🌐</span>
+                    <strong>Web</strong>
+                    <small>HTML · CSS · Vue</small>
+                </div>
+                <div class="category-card">
+                    <span>🗄️</span>
+                    <strong>Databases</strong>
+                    <small>SQL · DB · SQLite</small>
+                </div>
+                <div class="category-card">
+                    <span>🎵</span>
+                    <strong>Audio</strong>
+                    <small>MP3 · WAV · FLAC</small>
+                </div>
+                <div class="category-card">
+                    <span>🎥</span>
+                    <strong>Videos</strong>
+                    <small>MP4 · MKV · MOV</small>
+                </div>
+                <div class="category-card">
+                    <span>🗜️</span>
+                    <strong>Archives</strong>
+                    <small>ZIP · RAR · 7Z</small>
+                </div>
+                <div class="category-card">
+                    <span>⚙️</span>
+                    <strong>Executables</strong>
+                    <small>EXE · MSI · APK</small>
+                </div>
+                <div class="category-card">
+                    <span>🛠️</span>
+                    <strong>System/Config</strong>
+                    <small>INI · CFG · ENV</small>
+                </div>
+                <div class="category-card">
+                    <span>🔤</span>
+                    <strong>Fonts</strong>
+                    <small>TTF · OTF · WOFF</small>
+                </div>
+                <div class="category-card">
+                    <span>🎨</span>
+                    <strong>Design</strong>
+                    <small>PSD · AI · Figma</small>
+                </div>
+                <div class="category-card">
+                    <span>🧊</span>
+                    <strong>3D/CAD</strong>
+                    <small>STL · OBJ · DWG</small>
+                </div>
+                <div class="category-card">
+                    <span>📚</span>
+                    <strong>eBooks</strong>
+                    <small>EPUB · MOBI · AZW</small>
+                </div>
+                <div class="category-card">
+                    <span>📈</span>
+                    <strong>Data</strong>
+                    <small>JSON · XML · YAML</small>
+                </div>
+                <div class="category-card">
+                    <span>📝</span>
+                    <strong>Subtitles</strong>
+                    <small>SRT · ASS · VTT</small>
+                </div>
+                <div class="category-card">
+                    <span>📓</span>
+                    <strong>Notebooks</strong>
+                    <small>IPYNB</small>
+                </div>
+                <div class="category-card">
+                    <span>📁</span>
+                    <strong>Other</strong>
+                    <small>Unrecognized files</small>
+                </div>
+            </div>
+        </section>
+        <!-- ================================
+         CTA
+    ================================= -->
+        <section class="container">
+            <div class="final-cta">
+                <div>
+                    <div class="page-badge">🚀 Ready to start?</div>
+                    <h2>
+                        Turn file chaos into
+                        <span>order.</span>
+                    </h2>
+                    <p>Select your files and let DropSort handle the rest.</p>
+                </div>
+                <a href="/" class="btn btn-primary btn-lg px-4">📁 Organize Files</a>
+            </div>
+        </section>
+        <!-- FOOTER -->
+        <footer class="dropsort-footer">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <span>© 2026 DropSort</span>
+                    <span>Built with Python & Flask</span>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    </body>
+</html>

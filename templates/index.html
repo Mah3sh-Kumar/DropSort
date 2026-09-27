@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DropSort — Smart File Organizer</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+              rel="stylesheet" />
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='css/style.css') }}" />
+    </head>
+    <body>
+        <!-- ========================================
+         NAVBAR
+    ======================================== -->
+        <nav class="navbar navbar-expand-lg dropsort-navbar">
+            <div class="container">
+                <a class="navbar-brand dropsort-brand" href="#top">
+                    <span class="brand-icon">📁</span>
+                    <span>
+                        <strong>DropSort</strong>
+                        <small>Organize your files</small>
+                    </span>
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for("home") }}">Organize Files</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for("features") }}">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for("how_to_use") }}">How to Use</a>
+                        </li>
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                            <button type="button"
+                                    id="themeToggle"
+                                    class="theme-toggle"
+                                    aria-label="Switch theme"
+                                    title="Switch theme">
+                                <span id="themeIcon">☀️</span>
+                                <span id="themeText">Light</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main id="top">
+            <!-- ========================================
+             HERO + UPLOAD
+        ======================================== -->
+            <section id="organize" class="organize-section">
+                <div class="hero-content">
+                    <h1>DropSort File Organizer</h1>
+                    <p>Organize your files effortlessly</p>
+                </div>
+                <!-- Upload Card -->
+                <div class="upload-card">
+                    <div id="dropZone" class="drop-zone">
+                        <div class="drop-content">
+                            <div class="drop-icon">📁</div>
+                            <h2>Drop your files here</h2>
+                            <span class="drop-or">or</span>
+                            <label for="fileInput" class="browse-btn">Browse Files</label>
+                            <input type="file" id="fileInput" multiple hidden />
+                            <p>Supported files will be automatically categorized.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="previewSection" class="files-section d-none">
+                <div class="files-header">
+                    <h3 id="fileCount">0 files selected</h3>
+                    <div>
+                        <button id="addMoreBtn"
+                                type="button"
+                                class="btn btn-outline-primary btn-sm me-2">+ Add More Files</button>
+                        <button id="clearBtn" type="button" class="btn btn-outline-danger btn-sm">Clear All</button>
+                    </div>
+                </div>
+                <div id="filePreview" class="file-list"></div>
+                <div class="duplicate-options">
+                    <div class="duplicate-options-header">
+                        <div>
+                            <h5>
+                                <span class="section-icon">♻️</span>
+                                Duplicate Handling
+                            </h5>
+                            <p>
+                                Choose what DropSort should do when identical files are
+                                detected.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="duplicate-mode-grid">
+                        <!-- MOVE -->
+                        <label class="duplicate-option selected">
+                            <input type="radio" name="duplicateMode" value="move" checked />
+                            <div class="duplicate-option-content">
+                                <div class="duplicate-option-icon">📦</div>
+                                <div class="duplicate-option-text">
+                                    <div class="duplicate-option-title">Move Duplicates</div>
+                                    <div class="duplicate-option-description">
+                                        Keep the first copy and move duplicates to the Duplicates
+                                        folder.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="duplicate-check">✓</div>
+                        </label>
+                        <!-- SKIP -->
+                        <label class="duplicate-option">
+                            <input type="radio" name="duplicateMode" value="skip" />
+                            <div class="duplicate-option-content">
+                                <div class="duplicate-option-icon">🗑️</div>
+                                <div class="duplicate-option-text">
+                                    <div class="duplicate-option-title">Skip Duplicates</div>
+                                    <div class="duplicate-option-description">Don't include duplicate files in the organized ZIP.</div>
+                                </div>
+                            </div>
+                            <div class="duplicate-check">✓</div>
+                        </label>
+                        <!-- KEEP -->
+                        <label class="duplicate-option">
+                            <input type="radio" name="duplicateMode" value="keep" />
+                            <div class="duplicate-option-content">
+                                <div class="duplicate-option-icon">📁</div>
+                                <div class="duplicate-option-text">
+                                    <div class="duplicate-option-title">Keep All</div>
+                                    <div class="duplicate-option-description">Keep every file in its normal category.</div>
+                                </div>
+                            </div>
+                            <div class="duplicate-check">✓</div>
+                        </label>
+                        <!-- RENAME -->
+                        <label class="duplicate-option">
+                            <input type="radio" name="duplicateMode" value="rename" />
+                            <div class="duplicate-option-content">
+                                <div class="duplicate-option-icon">🔄</div>
+                                <div class="duplicate-option-text">
+                                    <div class="duplicate-option-title">Rename Duplicates</div>
+                                    <div class="duplicate-option-description">
+                                        Keep duplicates and automatically rename conflicting
+                                        filenames.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="duplicate-check">✓</div>
+                        </label>
+                    </div>
+                </div>
+                <div class="action-area mb-0">
+                    <button id="organizeBtn"
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                            aria-label="Organize selected files">Organize Files</button>
+                </div>
+            </section>
+            <!-- ========================================
+             Processing Progress
+        ======================================== -->
+            <section id="progressSection" class="progress-section d-none">
+                <div class="progress-card">
+                    <!-- Status Icon -->
+                    <div id="progressIcon" class="progress-status-icon">🔄</div>
+                    <!-- Current Stage -->
+                    <h2 id="progressTitle">Preparing Files</h2>
+                    <p id="progressMessage">Getting everything ready...</p>
+                    <!-- Overall Progress -->
+                    <div class="overall-progress">
+                        <div class="progress-label">
+                            <span>Overall Progress</span>
+                            <strong id="overallProgressText">0%</strong>
+                        </div>
+                        <div class="progress-track"
+                             role="progressbar"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="0">
+                            <div id="overallProgressBar" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <!-- Stages -->
+                    <div class="progress-stages">
+                        <!-- Upload -->
+                        <div class="progress-stage" data-stage="upload">
+                            <div class="stage-icon">↑</div>
+                            <div class="stage-info">
+                                <strong>Uploading</strong>
+                                <span>Waiting</span>
+                            </div>
+                        </div>
+                        <!-- Duplicate -->
+                        <div class="progress-stage" data-stage="duplicates">
+                            <div class="stage-icon">♻️</div>
+                            <div class="stage-info">
+                                <strong>Checking</strong>
+                                <span>Waiting</span>
+                            </div>
+                        </div>
+                        <!-- Organizing -->
+                        <div class="progress-stage" data-stage="organizing">
+                            <div class="stage-icon">📁</div>
+                            <div class="stage-info">
+                                <strong>Organizing</strong>
+                                <span>Waiting</span>
+                            </div>
+                        </div>
+                        <!-- ZIP -->
+                        <div class="progress-stage" data-stage="zip">
+                            <div class="stage-icon">📦</div>
+                            <div class="stage-info">
+                                <strong>Creating ZIP</strong>
+                                <span>Waiting</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- File Counter -->
+                    <div id="progressCounter" class="progress-counter">Preparing...</div>
+                </div>
+            </section>
+            <section id="resultsSection" class="results-section d-none">
+                <div class="results-card">
+                    <div class="results-header">
+                        <div class="success-icon">🎉</div>
+                        <div>
+                            <h2 class="m-0">Organization Complete</h2>
+                            <p id="resultsMessage" class="text-secondary mb-0 mt-1">Your files have been organized successfully.</p>
+                        </div>
+                    </div>
+                    <div id="resultsStats" class="stats-grid mt-4"></div>
+                    <div id="duplicatesSection" class="mt-4 d-none">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="h5 fw-bold mb-0">Duplicate Groups</h3>
+                            <span id="duplicateBadge" class="badge rounded-pill text-bg-success">0</span>
+                        </div>
+                        <div id="duplicatesList"></div>
+                    </div>
+                    <div class="download-area">
+                        <button id="resultsDownloadBtn" type="button" class="btn btn-success btn-lg">Download Organized ZIP</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- ========================================
+         SIMPLE FOOTER
+    ======================================== -->
+        <footer class="dropsort-footer">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <span>© 2026 DropSort</span>
+                    <span>Built with Python & Flask</span>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </body>
+</html>
