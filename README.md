@@ -7,9 +7,13 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap_5-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-**DropSort** is a Flask-based file organization web application that helps users sort messy files into meaningful categories through a simple drag-and-drop interface.
+**DropSort** is a Flask-based file organization web application that helps users
+sort messy files into meaningful categories through a simple drag-and-drop
+interface.
 
-Users can select files, preview them, upload them to the Flask backend, automatically categorize them, organize them into folders, and generate downloadable organized files.
+Users can select files, preview them, upload them to the Flask backend,
+automatically categorize them, organize them into folders, and generate
+downloadable organized files.
 
 ---
 
@@ -17,12 +21,16 @@ Users can select files, preview them, upload them to the Flask backend, automati
 
 ### Current Features
 
-- **Drag-and-Drop File Upload** — Select or drag files directly into the browser.
+- **Drag-and-Drop File Upload** — Select or drag files directly into the
+  browser.
 - **File Preview** — Preview selected files before uploading.
 - **File Metadata** — Display file name, extension, size, and detected category.
-- **Selection Management** — Remove individual files or clear the complete selection.
-- **Flask Backend Integration** — Handles file uploads and processing through Flask.
-- **File Classification** — Categorizes files primarily by their file extensions.
+- **Selection Management** — Remove individual files or clear the complete
+  selection.
+- **Flask Backend Integration** — Handles file uploads and processing through
+  Flask.
+- **File Classification** — Categorizes files primarily by their file
+  extensions.
 - **Automatic Organization** — Moves files into category-specific directories.
 - **Duplicate Detection** — Detects duplicate files using file hashing.
 - **ZIP Generation** — Creates an organized ZIP archive from processed files.
@@ -51,27 +59,18 @@ Users can select files, preview them, upload them to the Flask backend, automati
 - 📓 Notebooks
 - 📁 Other
 
-### Planned Improvements
-
-- [x] Upload and processing progress indicators
-- [x] Improved file-type detection using file signatures/magic numbers
-- [ ] More advanced duplicate-handling options
-- [ ] File upload limits and additional security checks
-- [x] Improved responsive UI/UX
-- [ ] Production deployment configuration
-
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Role |
-| :--- | :--- |
-| **Python 3** | Core backend logic |
-| **Flask** | Web framework and routing |
-| **HTML5** | Web page structure |
-| **CSS3** | Custom styling |
-| **JavaScript** | Drag-and-drop, file previews, and client-side interactions |
-| **Bootstrap 5** | Responsive UI components |
+| Technology      | Role                                                       |
+| :-------------- | :--------------------------------------------------------- |
+| **Python 3**    | Core backend logic                                         |
+| **Flask**       | Web framework and routing                                  |
+| **HTML5**       | Web page structure                                         |
+| **CSS3**        | Custom styling                                             |
+| **JavaScript**  | Drag-and-drop, file previews, and client-side interactions |
+| **Bootstrap 5** | Responsive UI components                                   |
 
 ---
 
@@ -106,7 +105,8 @@ dropsort/
     └── index.html                 # Main web interface
 ```
 
-> Runtime folders such as uploaded files, organized files, downloads, and test files are excluded from Git using `.gitignore`.
+> Runtime folders such as uploaded files, organized files, downloads, and test
+> files are excluded from Git using `.gitignore`.
 
 ---
 
@@ -209,15 +209,15 @@ DropSort primarily categorizes files using their file extensions.
 
 Examples:
 
-| Example File | Category |
-| :--- | :--- |
-| `resume.pdf` | 📄 Documents |
-| `photo.jpg` | 🖼️ Images |
-| `main.py` | 💻 Code |
-| `song.mp3` | 🎵 Audio |
-| `movie.mp4` | 🎥 Videos |
-| `backup.zip` | 🗜️ Archives |
-| `data.xyz123` | 📁 Other |
+| Example File  | Category     |
+| :------------ | :----------- |
+| `resume.pdf`  | 📄 Documents |
+| `photo.jpg`   | 🖼️ Images    |
+| `main.py`     | 💻 Code      |
+| `song.mp3`    | 🎵 Audio     |
+| `movie.mp4`   | 🎥 Videos    |
+| `backup.zip`  | 🗜️ Archives  |
+| `data.xyz123` | 📁 Other     |
 
 ---
 
@@ -240,11 +240,15 @@ Before deploying the application publicly, consider implementing:
 
 ## 📌 Development Status
 
-DropSort is currently under **active development** as a personal/educational project.
+DropSort is currently under **active development** as a personal/educational
+project.
 
-The current implementation includes the frontend interface, Flask backend, file upload workflow, file classification, organization, duplicate detection, ZIP generation, and download functionality.
+The current implementation includes the frontend interface, Flask backend, file
+upload workflow, file classification, organization, duplicate detection, ZIP
+generation, and download functionality.
 
-Additional improvements are planned for security, file detection, progress feedback, and UI/UX.
+Additional improvements are planned for security, file detection, progress
+feedback, and UI/UX.
 
 ---
 
@@ -259,5 +263,3 @@ GitHub: [Mah3sh-Kumar](https://github.com/Mah3sh-Kumar)
 ## 📝 License
 
 This project is currently developed for educational and personal purposes.
-
-
