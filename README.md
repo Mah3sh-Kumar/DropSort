@@ -35,18 +35,29 @@ Users can select files, preview them, upload them to the Flask backend, automati
 - 📊 Spreadsheets
 - 📽️ Presentations
 - 💻 Code
+- 🌐 Web
+- 🗄️ Databases
 - 🎵 Audio
 - 🎥 Videos
 - 🗜️ Archives
+- ⚙️ Executables
+- 🛠️ System/Config
+- 🔤 Fonts
+- 🎨 Design
+- 🧊 3D/CAD
+- 📚 eBooks
+- 📈 Data
+- 📝 Subtitles
+- 📓 Notebooks
 - 📁 Other
 
 ### Planned Improvements
 
-- [ ] Upload and processing progress indicators
-- [ ] Improved file-type detection using file signatures/magic numbers
+- [x] Upload and processing progress indicators
+- [x] Improved file-type detection using file signatures/magic numbers
 - [ ] More advanced duplicate-handling options
 - [ ] File upload limits and additional security checks
-- [ ] Improved responsive UI/UX
+- [x] Improved responsive UI/UX
 - [ ] Production deployment configuration
 
 ---
