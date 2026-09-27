@@ -1,19 +1,26 @@
 # 📂 DropSort
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-Current-lightgrey?style=for-the-badge&logo=flask&logoColor=black)
+![Flask](https://img.shields.io/badge/Flask-3.x-lightgrey?style=for-the-badge&logo=flask&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap_5-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-**DropSort** is a Flask-based file organization web application that helps users
-sort messy files into meaningful categories through a simple drag-and-drop
-interface.
+## 📌 About
 
-Users can select files, preview them, upload them to the Flask backend,
-automatically categorize them, organize them into folders, and generate
-downloadable organized files.
+**DropSort** is a personal Flask-based file organization project developed by
+**Mahesh Kumar**.
+
+The project provides a web interface for selecting or dragging files, previewing
+them, uploading them to a Flask backend, classifying them into categories,
+detecting duplicates, organizing them into folders, and generating a
+downloadable ZIP archive.
+
+> **Personal Project Notice:** DropSort is an independently developed
+> personal/educational project. The source code, original design,
+> implementation, documentation, and project structure are the intellectual
+> property of **Mahesh Kumar**, unless otherwise stated.
 
 ---
 
@@ -29,12 +36,18 @@ downloadable organized files.
   selection.
 - **Flask Backend Integration** — Handles file uploads and processing through
   Flask.
-- **File Classification** — Categorizes files primarily by their file
-  extensions.
-- **Automatic Organization** — Moves files into category-specific directories.
+- **File Classification** — Categorizes files using file extensions and
+  file-signature detection.
+- **Automatic Organization** — Organizes files into category-specific
+  directories.
 - **Duplicate Detection** — Detects duplicate files using file hashing.
+- **Duplicate Handling** — Supports multiple duplicate-handling options.
 - **ZIP Generation** — Creates an organized ZIP archive from processed files.
 - **Download Support** — Provides the generated organized files for download.
+- **Responsive UI** — Designed for desktop and mobile browsers.
+- **Dark/Light Theme** — Theme switching for the user interface.
+- **Features & How-to-Use Pages** — Includes dedicated project documentation
+  pages.
 
 ### Supported Categories
 
@@ -63,14 +76,14 @@ downloadable organized files.
 
 ## 🛠️ Tech Stack
 
-| Technology      | Role                                                       |
-| :-------------- | :--------------------------------------------------------- |
-| **Python 3**    | Core backend logic                                         |
-| **Flask**       | Web framework and routing                                  |
-| **HTML5**       | Web page structure                                         |
-| **CSS3**        | Custom styling                                             |
-| **JavaScript**  | Drag-and-drop, file previews, and client-side interactions |
-| **Bootstrap 5** | Responsive UI components                                   |
+| Technology      | Role                                                           |
+| :-------------- | :------------------------------------------------------------- |
+| **Python 3**    | Core backend logic                                             |
+| **Flask**       | Web framework and routing                                      |
+| **HTML5**       | Web page structure                                             |
+| **CSS3**        | Custom styling                                                 |
+| **JavaScript**  | Drag-and-drop, previews, uploads, and client-side interactions |
+| **Bootstrap 5** | Responsive UI components                                       |
 
 ---
 
@@ -79,34 +92,39 @@ downloadable organized files.
 ```text
 dropsort/
 │
-├── app.py                         # Main Flask application
-├── requirements.txt               # Python dependencies
-├── README.md                      # Project documentation
-├── .gitignore                     # Git ignore rules
+├── app.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── .gitignore
 │
-├── routes/                        # Flask route modules
-│   ├── upload.py                  # File upload handling
-│   ├── organize.py                # File organization handling
-│   └── download.py                # Download handling
+├── routes/
+│   ├── upload.py
+│   ├── organize.py
+│   └── download.py
 │
-├── services/                      # Core application logic
-│   ├── duplicate_detector.py      # Duplicate file detection
-│   ├── file_classifier.py         # File category detection
-│   ├── file_organizer.py          # File organization logic
-│   └── zip_generator.py           # Organized ZIP generation
+├── services/
+│   ├── duplicate_detector.py
+│   ├── file_classifier.py
+│   ├── file_organizer.py
+│   ├── file_signature_detector.py
+│   └── zip_generator.py
 │
 ├── static/
 │   ├── css/
-│   │   └── style.css              # Custom styles
+│   │   └── style.css
 │   └── js/
-│       └── app.js                 # Frontend interactions
+│       ├── app.js
+│       └── theme.js
 │
 └── templates/
-    └── index.html                 # Main web interface
+    ├── index.html
+    ├── features.html
+    └── how_to_use.html
 ```
 
-> Runtime folders such as uploaded files, organized files, downloads, and test
-> files are excluded from Git using `.gitignore`.
+Runtime folders such as uploaded files, organized files, generated downloads,
+and test files are excluded from Git using `.gitignore`.
 
 ---
 
@@ -115,8 +133,6 @@ dropsort/
 ### Prerequisites
 
 Make sure **Python 3.x** is installed.
-
-Check your Python version:
 
 ```powershell
 python --version
@@ -137,13 +153,13 @@ python -m venv .venv
 
 ### 3. Activate the Virtual Environment
 
-For **Windows PowerShell**:
+**Windows PowerShell:**
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-For **Command Prompt**:
+**Command Prompt:**
 
 ```cmd
 .venv\Scripts\activate.bat
@@ -159,19 +175,15 @@ python -m pip install -r requirements.txt
 
 ## 💻 Run the Application
 
-Make sure the virtual environment is active, then run:
-
 ```powershell
 python app.py
 ```
 
-The Flask development server should start at:
+Open:
 
 ```text
 http://127.0.0.1:5000
 ```
-
-Open that address in your browser.
 
 ---
 
@@ -195,19 +207,18 @@ flowchart TD
 1. The user selects or drags files into the web interface.
 2. JavaScript displays the selected files and their metadata.
 3. Files are uploaded to the Flask backend.
-4. The backend classifies files into categories.
-5. Duplicate files can be detected during processing.
-6. Files are organized into appropriate folders.
-7. An organized ZIP archive can be generated.
-8. The resulting file can be downloaded.
+4. The backend classifies the files.
+5. Duplicate files are detected during processing.
+6. Files are organized into appropriate categories.
+7. An organized ZIP archive is generated.
+8. The resulting archive can be downloaded.
 
 ---
 
 ## 📂 File Categorization
 
-DropSort primarily categorizes files using their file extensions.
-
-Examples:
+DropSort uses file extensions and file-signature detection to help determine
+file categories.
 
 | Example File  | Category     |
 | :------------ | :----------- |
@@ -221,34 +232,25 @@ Examples:
 
 ---
 
-## 🔒 Security Notes
+## 🔒 Security & Deployment Notes
 
-DropSort is currently intended as a **local development/educational project**.
-
-Before deploying the application publicly, consider implementing:
-
-- File-size limits
-- Filename and path validation
-- Allowed file-extension restrictions
-- Temporary-file cleanup
-- Authentication if required
-- Malware/security scanning for uploaded files
-- Production WSGI server configuration such as Gunicorn or Waitress
-- Additional protection against malicious file uploads
+DropSort is a personal/educational project. Before public deployment, additional
+protections should be considered, including file-size limits, filename/path
+validation, allowed file-type restrictions, temporary-file cleanup, protection
+against malicious archives, authentication where appropriate, malware/security
+scanning, production WSGI configuration, rate limiting, and abuse protection.
 
 ---
 
-## 📌 Development Status
+## 🚧 Development Status
 
-DropSort is currently under **active development** as a personal/educational
-project.
+DropSort is an actively developed personal project. The current implementation
+includes the frontend interface, responsive UI, dark/light theme, Flask backend,
+file upload workflow, file classification, file-signature detection, file
+organization, duplicate detection and handling, ZIP generation, download
+functionality, Features page, and How-to-Use page.
 
-The current implementation includes the frontend interface, Flask backend, file
-upload workflow, file classification, organization, duplicate detection, ZIP
-generation, and download functionality.
-
-Additional improvements are planned for security, file detection, progress
-feedback, and UI/UX.
+Further improvements may be added during development.
 
 ---
 
@@ -256,10 +258,38 @@ feedback, and UI/UX.
 
 **Mahesh Kumar**
 
-GitHub: [Mah3sh-Kumar](https://github.com/Mah3sh-Kumar)
+Personal project developed and maintained by Mahesh Kumar.
+
+GitHub: https://github.com/Mah3sh-Kumar
 
 ---
 
-## 📝 License
+## © Copyright & Usage Restrictions
 
-This project is currently developed for educational and personal purposes.
+**Copyright © 2026 Mahesh Kumar. All Rights Reserved.**
+
+DropSort is a **proprietary personal project**. No permission is granted to
+copy, reproduce, redistribute, republish, modify, create derivative works from,
+commercially use, or claim as your own any part of the DropSort source code,
+original UI/design, documentation, or implementation without prior written
+permission from Mahesh Kumar.
+
+You may view the public repository for personal evaluation, learning, and
+reference. Viewing the repository does **not** grant permission to copy, reuse,
+modify, redistribute, publish, or commercially exploit the project.
+
+For permission to reuse any part of DropSort, contact the author first.
+
+**All rights reserved.**
+
+---
+
+## 📄 License
+
+This repository is distributed under a **proprietary, all-rights-reserved
+license**.
+
+See [`LICENSE`](LICENSE) for the complete terms.
+
+> Third-party libraries, frameworks, icons, fonts, and other dependencies remain
+> subject to their respective licenses.

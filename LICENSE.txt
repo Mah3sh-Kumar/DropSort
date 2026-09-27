@@ -1,0 +1,30 @@
+PROPRIETARY SOFTWARE LICENSE
+Copyright (c) 2026 Mahesh Kumar
+All Rights Reserved.
+
+DropSort and its associated source code, original design, documentation, and project structure are proprietary works of Mahesh Kumar.
+
+1. NO GRANT OF RIGHTS
+No license, permission, or other right is granted to copy, reproduce, modify, distribute, publish, sublicense, sell, or create derivative works from this project, except where expressly permitted in writing by the copyright owner.
+
+2. PERMITTED USE
+You may view the publicly available repository for personal evaluation, learning, and reference. Viewing or accessing the repository does not grant permission to copy, reuse, modify, redistribute, publish, or commercially exploit the source code or other original project materials.
+
+3. PROHIBITED USE
+Without prior written permission from Mahesh Kumar, you may not:
+- Copy or reproduce the source code.
+- Republish or redistribute the source code.
+- Create or distribute derivative versions.
+- Incorporate substantial portions of the code into another project.
+- Use the original project design, UI, documentation, or implementation as the basis for another project.
+- Use the project or its source code for commercial purposes.
+- Claim the original project or its implementation as your own.
+
+4. THIRD-PARTY MATERIALS
+Third-party libraries, frameworks, assets, fonts, icons, and other dependencies are not covered by this proprietary license and remain subject to their respective licenses.
+
+5. PERMISSION
+Requests for permission to use, reproduce, modify, or redistribute any part of this project should be directed to the copyright owner.
+
+Copyright (c) 2026 Mahesh Kumar
+All Rights Reserved.
